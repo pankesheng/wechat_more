@@ -361,7 +361,13 @@ public class SUtilCommon {
 			if (i > 0) {
 				sb.append("&");
 			}
-			sb.append(entry.getKey() + "=" + entry.getValue());
+			String value = "";
+            try {
+            	value = URLEncoder.encode(entry.getValue().toString(), "UTF-8");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+            sb.append(entry.getKey()+"="+value);
 			i++;
 		}
 		return sb.toString();
