@@ -259,7 +259,7 @@ public class SUtilCommon {
 	 *            请求地址
 	 * @return
 	 */
-	public static String httpPostRequest(String requestUrl,Map<String, Object> params) {
+	public static String httpPostRequest(String requestUrl,String params) {
 		StringBuffer buffer = new StringBuffer();
 		try {
 			URL url = new URL(requestUrl);
@@ -276,21 +276,7 @@ public class SUtilCommon {
 			httpUrlConn.setRequestMethod("POST");
 			DataOutputStream out = new DataOutputStream(
 					httpUrlConn.getOutputStream());
-			StringBuilder sb = new StringBuilder("{");
-			int i = 0;
-			for (Iterator<Map.Entry<String, Object>> it = params.entrySet()
-					.iterator(); it.hasNext();) {
-				Map.Entry<String, Object> entry = (Map.Entry<String, Object>) it
-						.next();
-				if (i > 0) {
-					sb.append(",");
-				}
-				sb.append("\"" + entry.getKey() + "\":\""
-						+ entry.getValue().toString() + "\"");
-				i++;
-			}
-			sb.append("}");
-			out.writeBytes(sb.toString());
+			out.writeBytes(params.toString());
 			httpUrlConn.connect();
 			// 将返回的输入流转换成字符串
 			InputStream inputStream = httpUrlConn.getInputStream();
