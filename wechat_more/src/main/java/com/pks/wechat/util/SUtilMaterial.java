@@ -170,7 +170,7 @@ public class SUtilMaterial {
 		params.put("type", type);
 		params.put("offset", offset);
 		params.put("count", count);
-		String result = SUtilCommon.httpPostRequest(url, params);
+		String result = SUtilCommon.httpPostRequest(url, SUtilCommon.paramstourl(params));
 		JSONObject jsonObject = JSONObject.fromObject(result);
 		return jsonObject;
 	}
@@ -190,7 +190,7 @@ public class SUtilMaterial {
 		params.put("type", type);
 		params.put("offset", offset);
 		params.put("count", count);
-		String result = SUtilCommon.httpPostRequest(url, params);
+		String result = SUtilCommon.httpPostRequest(url, SUtilCommon.paramstourl(params));
 		JSONObject jsonObject = JSONObject.fromObject(result);
 		if(jsonObject!=null && jsonObject.containsKey("item")){
 			List<BasicMaterial> list = new ArrayList<BasicMaterial>();
