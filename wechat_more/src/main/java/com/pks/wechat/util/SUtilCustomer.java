@@ -36,15 +36,15 @@ public class SUtilCustomer {
 		String accessToken = SUtilBase.getAccessToken(appId).getAccess_token();
 		String url = WeChatUrlConfiguration.KF_ONLINE_LIST_URL.replace("ACCESS_TOKEN", accessToken);
 		String result = SUtilCommon.httpRequest(url);
-		if(result.equals("{\"kf_online_list\":[]}")){
-			Random random = new Random();
-			int case1 = random.nextInt(10);
-			int case2 = random.nextInt(10);
-			int auto1 = random.nextInt(5);
-			int auto2 = random.nextInt(5);
-			result = "{\"kf_online_list\": [{\"kf_account\": \"test1@test\",\"status\": 1,\"kf_id\": \"1001\",\"auto_accept\": "+auto1+",\"accepted_case\": "+case1+"},{\"kf_account\": \"test2@test\",\"status\": 1,\"kf_id\": \"1002\",\"auto_accept\": "+auto2+",\"accepted_case\": "+case2+"}]}";
-		};
-		System.out.println(result);
+//		if(result.equals("{\"kf_online_list\":[]}")){
+//			Random random = new Random();
+//			int case1 = random.nextInt(10);
+//			int case2 = random.nextInt(10);
+//			int auto1 = random.nextInt(5);
+//			int auto2 = random.nextInt(5);
+//			result = "{\"kf_online_list\": [{\"kf_account\": \"test1@test\",\"status\": 1,\"kf_id\": \"1001\",\"auto_accept\": "+auto1+",\"accepted_case\": "+case1+"},{\"kf_account\": \"test2@test\",\"status\": 1,\"kf_id\": \"1002\",\"auto_accept\": "+auto2+",\"accepted_case\": "+case2+"}]}";
+//		};
+//		System.out.println(result);
 		JSONObject jsonObject = JSONObject.fromObject(result);
 		List<OnLineKf> kflist = new ArrayList<OnLineKf>();
 		if(jsonObject.containsKey("kf_online_list")){
