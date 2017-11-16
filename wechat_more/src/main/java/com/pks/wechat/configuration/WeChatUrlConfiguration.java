@@ -148,4 +148,9 @@ public class WeChatUrlConfiguration {
 	 */
 	public final static String QRCODE_SHOW = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=TICKET";
 	
+	/**
+	 * 获取微信服务ip地址  GET
+	 */
+	public final static String SERVER_IPS = "https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=ACCESS_TOKEN";
+	
 }

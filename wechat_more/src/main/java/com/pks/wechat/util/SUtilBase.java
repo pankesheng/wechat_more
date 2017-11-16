@@ -1,14 +1,20 @@
 package com.pks.wechat.util;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.pks.wechat.configuration.WeChatConfigs;
 import com.pks.wechat.configuration.WeChatUrlConfiguration;
 import com.pks.wechat.pojo.AccessToken;
 import com.pks.wechat.pojo.JsApiTicket;
+import com.pks.wechat.pojo.OnLineKf;
+
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 
@@ -99,6 +105,14 @@ public class SUtilBase {
 			WeChatConfigs.getConfig(appId).setJsapi_ticket(jsApiTicket);
 		}
 		return jsApiTicket;
+	}
+	
+	
+	public static String getServerIps(String appId){
+		String accessToken = SUtilBase.getAccessToken(appId).getAccess_token();
+		String url = WeChatUrlConfiguration.SERVER_IPS.replace("ACCESS_TOKEN", accessToken);
+		String result = SUtilCommon.httpRequest(url);
+		return result;
 	}
 	
 }
