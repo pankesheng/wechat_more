@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class MenuDto {
 
-	private String url;// 左侧菜单/顶部子应用 --链接地址
+	private String url;// 左侧菜单/顶部子应用 --链接地址 
 
 	private String title;// 顶部子应用--名称
 	private String imgUrl;// 顶部子应用--图标地址
