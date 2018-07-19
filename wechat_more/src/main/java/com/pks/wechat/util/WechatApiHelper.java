@@ -19,7 +19,6 @@ import com.pks.wechat.menu.Menu;
 import com.pks.wechat.message.resp.Article;
 import com.pks.wechat.message.resp.Music;
 import com.pks.wechat.pojo.AccessToken;
-import com.zcj.web.dto.Page;
 
 
 public class WechatApiHelper {

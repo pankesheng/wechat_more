@@ -436,6 +436,11 @@ public class SUtilCommon {
 //		Random random = new Random();
 //		return MD5Util.MD5Encode(String.valueOf(random.nextInt(10000)), "UTF-8");
 	}
+	
+	public static String getUUID(){
+		return UUID.randomUUID().toString().replaceAll("-", "");
+	}
+	
 	public static String getTimeStamp() {
 		return String.valueOf(System.currentTimeMillis() / 1000);
 	}

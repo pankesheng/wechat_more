@@ -18,7 +18,6 @@ import org.slf4j.LoggerFactory;
 import com.pks.wechat.configuration.WeChatConfigs;
 import com.pks.wechat.configuration.WeChatUrlConfiguration;
 import com.pks.wechat.pojo.WeChatPayResult;
-import com.zcj.util.UtilString;
 /**
  * 支付 接口
  * @author pks
@@ -192,7 +191,7 @@ public class SUtilPay {
 	 */
 	@SuppressWarnings({ "unused", "rawtypes" })
 	public static boolean refund(HttpServletResponse response,String appId,String out_trade_no,Double total_fee1,Double refund_fee1) throws SDKRuntimeException {
-		String out_refund_no = UtilString.getUUID();// 退款单号，随机生成 ，但长度应该跟文档一样（32位）(卖家信息校验不一致，请核实后再试)
+		String out_refund_no = SUtilCommon.getUUID();// 退款单号，随机生成 ，但长度应该跟文档一样（32位）(卖家信息校验不一致，请核实后再试)
 		int total_fee = (int) (total_fee1*100);//订单的总金额,以分为单位（填错了貌似提示：同一个out_refund_no退款金额要一致）
 		int refund_fee = (int) (refund_fee1*100);;// 退款金额，以分为单位（填错了貌似提示：同一个out_refund_no退款金额要一致）
 		String nonce_str = SUtilCommon.buildRandom(4) + "";// 随机字符串
