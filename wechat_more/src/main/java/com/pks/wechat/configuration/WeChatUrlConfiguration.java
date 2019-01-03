@@ -121,6 +121,7 @@ public class WeChatUrlConfiguration {
 	
 	/**上传图文消息内的图片获取URL(POST)*/
 	public final static String MEDIA_UPLOADIMG = "https://api.weixin.qq.com/cgi-bin/media/uploadimg?access_token=ACCESS_TOKEN";
+	public final static String MATERIAL_ADD_TEMP_MATERIAL = "https://api.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE";
 	/**新增素材信息(POST)*/
 	public final static String MATERIAL_ADD_MATERIAL = "https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=ACCESS_TOKEN";
 	/**新增永久图文素材 (POST)*/
@@ -129,7 +130,6 @@ public class WeChatUrlConfiguration {
 	public final static String MATERIAL_GET_URL = "https://api.weixin.qq.com/cgi-bin/material/get_material?access_token=ACCESS_TOKEN";
 	/**获取素材信息列表(POST) */
 	public final static String MATERIAL_BATCHGET_URL = "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=ACCESS_TOKEN";
-
 	
 	
 	/**创建临时带参二维码 ticket
@@ -152,5 +152,16 @@ public class WeChatUrlConfiguration {
 	 * 获取微信服务ip地址  GET
 	 */
 	public final static String SERVER_IPS = "https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=ACCESS_TOKEN";
+	
+	
+	/*
+	 * 群发
+	 */
+	/** 上传图文消息素材【订阅号与服务号认证后均可用】 */
+	public final static String MATERIAL_UPLOADNEWS_URL = "https://api.weixin.qq.com/cgi-bin/media/uploadnews?access_token=ACCESS_TOKEN";
+	/** 根据标签进行群发【订阅号与服务号认证后均可用】 */
+	public final static String SENDALL_URL = "https://api.weixin.qq.com/cgi-bin/message/mass/sendall?access_token=ACCESS_TOKEN";
+	/** 根据OpenID列表群发【订阅号不可用，服务号认证后可用】*/
+	public final static String SEND_URL = "https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token=ACCESS_TOKEN";
 	
 }
