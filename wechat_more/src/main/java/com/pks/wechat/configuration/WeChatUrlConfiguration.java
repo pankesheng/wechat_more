@@ -121,6 +121,7 @@ public class WeChatUrlConfiguration {
 	
 	/**上传图文消息内的图片获取URL(POST)*/
 	public final static String MEDIA_UPLOADIMG = "https://api.weixin.qq.com/cgi-bin/media/uploadimg?access_token=ACCESS_TOKEN";
+	/**新增临时素材*/
 	public final static String MATERIAL_ADD_TEMP_MATERIAL = "https://api.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE";
 	/**新增素材信息(POST)*/
 	public final static String MATERIAL_ADD_MATERIAL = "https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=ACCESS_TOKEN";
@@ -164,4 +165,6 @@ public class WeChatUrlConfiguration {
 	/** 根据OpenID列表群发【订阅号不可用，服务号认证后可用】*/
 	public final static String SEND_URL = "https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token=ACCESS_TOKEN";
 	
+	/**预览接口*/
+	public final static String SEND_PREVIEW_URL = "https://api.weixin.qq.com/cgi-bin/message/mass/preview?access_token=ACCESS_TOKEN";
 }

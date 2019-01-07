@@ -118,6 +118,7 @@ public class SUtilMedia {
 
 			// 使用JSON-lib解析返回结果
 			JSONObject jsonObject = JSONObject.fromObject(buffer.toString());
+			log.error(jsonObject.toString());
 			weixinMedia = new WeChatMedia();
 			weixinMedia.setType(jsonObject.getString("type"));
 			// type等于thumb时的返回结果和其它类型不一样
