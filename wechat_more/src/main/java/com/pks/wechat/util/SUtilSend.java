@@ -2,6 +2,7 @@ package com.pks.wechat.util;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -191,9 +192,22 @@ public class SUtilSend {
 		return result;
 	}
 	
-	public static String makeArticlePreviewMessage(String openId,String media_id){
-		String jsonMsg = "{\"touser\":\"%s\",\"mpnews\":{\"media_id\":\"%s\"},\"msgtype\":\"mpnews\"}";
-		jsonMsg = String.format(jsonMsg,openId,media_id);
+	/***
+	 * 生成图文预览消息主题
+	 * @param openId	微信openId
+	 * @param towxname	微信号	与openid都有的情况下 以此为准
+	 * @param media_id	图文消息 media_id
+	 * @return
+	 */
+	public static String makeArticlePreviewMessage(String openId,String towxname,String media_id){
+		String jsonMsg = "";
+		if(StringUtils.isNotBlank(towxname)){
+			jsonMsg = "{\"towxname\":\"%s\",\"mpnews\":{\"media_id\":\"%s\"},\"msgtype\":\"mpnews\"}";
+			jsonMsg = String.format(jsonMsg,towxname,media_id);
+		}else{
+			jsonMsg = "{\"touser\":\"%s\",\"mpnews\":{\"media_id\":\"%s\"},\"msgtype\":\"mpnews\"}";
+			jsonMsg = String.format(jsonMsg,openId,media_id);
+		}
 		return jsonMsg;
 	}
 	
