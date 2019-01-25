@@ -190,9 +190,8 @@ public class SUtilMedia {
 	}
 	
 	
-	public String uploadImage(String appId,String mediaFileUrl){
+	public static String uploadImage(String appId,String mediaFileUrl){
 		String accessToken = SUtilBase.getAccessToken(appId).getAccess_token();
-		WeChatMedia weixinMedia = null;
 		// 拼装请求地址
 		String uploadMediaUrl = WeChatUrlConfiguration.MEDIA_UPLOADIMG;
 		uploadMediaUrl = uploadMediaUrl.replace("ACCESS_TOKEN", accessToken);
@@ -272,7 +271,6 @@ public class SUtilMedia {
 				log.error(jsonObject.toString());
 			}
 		} catch (Exception e) {
-			weixinMedia = null;
 			log.error("上传图文消息内的图片失败：{}", e);
 		}
 		return "";
