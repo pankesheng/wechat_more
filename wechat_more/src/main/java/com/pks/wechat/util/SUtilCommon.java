@@ -179,6 +179,8 @@ public class SUtilCommon {
 		}
 		if(contentType.contains("image/jpeg")){
 			fileExt = ".jpg";
+		} else if(contentType.contains("image/png")){
+			fileExt = ".png";
 		} else if (contentType.contains("audio/mpeg")){
 			fileExt = ".mp3";
 		} else if (contentType.contains("audio/amr")){
